@@ -32,7 +32,7 @@ export default function ChatInput({ onSend, disabled }: ChatInputProps) {
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={handleKeyDown}
-          placeholder="Type your message..."
+          placeholder="Ask about Close Safely..."
           disabled={disabled}
           rows={1}
           className="flex-1 bg-panel border border-stroke rounded-xl px-4 py-3 text-sm text-white placeholder-white/40 resize-none focus:outline-none focus:border-green/50 transition-colors disabled:opacity-50"

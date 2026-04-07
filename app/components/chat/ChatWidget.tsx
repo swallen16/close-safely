@@ -9,7 +9,7 @@ const INITIAL_MESSAGE: Message = {
   id: 'welcome',
   role: 'assistant',
   content:
-    'Hi! Welcome to Close Safely. How can I help you today? I can answer questions about our lending solutions, risk management, and more.',
+    "Hi! I'm the Close Safely assistant. I can help you learn how our platform helps brokers and borrowers close transactions with confidence — from security and transparency features to getting started. What would you like to know?",
   timestamp: new Date(),
 };
 
@@ -53,8 +53,8 @@ export default function ChatWidget() {
     });
 
     try {
-      const endpoint = process.env.NEXT_PUBLIC_CHAT_ENDPOINT;
-      if (!endpoint) throw new Error('Missing NEXT_PUBLIC_CHAT_ENDPOINT');
+      const endpoint = process.env.NEXT_PUBLIC_API_URL;
+      if (!endpoint) throw new Error('Missing NEXT_PUBLIC_API_URL');
 
       // Send only the last ~10 turns (excluding the initial welcome)
       const history = nextMessages
