@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, FormEvent, KeyboardEvent } from 'react';
+import { useState, KeyboardEvent } from 'react';
 
 interface ChatInputProps {
   onSend: (message: string) => void;
@@ -10,7 +10,7 @@ interface ChatInputProps {
 export default function ChatInput({ onSend, disabled }: ChatInputProps) {
   const [input, setInput] = useState('');
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
     if (input.trim() && !disabled) {
       onSend(input.trim());
@@ -26,7 +26,7 @@ export default function ChatInput({ onSend, disabled }: ChatInputProps) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="border-t border-stroke p-3">
+    <form onSubmit={handleSubmit} className="border-t border-gray-700 p-3">
       <div className="flex items-end gap-2">
         <textarea
           value={input}
@@ -35,13 +35,13 @@ export default function ChatInput({ onSend, disabled }: ChatInputProps) {
           placeholder="Ask about Close Safely..."
           disabled={disabled}
           rows={1}
-          className="flex-1 bg-panel border border-stroke rounded-xl px-4 py-3 text-sm text-white placeholder-white/40 resize-none focus:outline-none focus:border-green/50 transition-colors disabled:opacity-50"
+          className="flex-1 bg-gray-800 border border-gray-700 rounded-xl px-4 py-3 text-sm text-white placeholder-white/40 resize-none focus:outline-none focus:border-green-600 transition-colors disabled:opacity-50"
           style={{ minHeight: '44px', maxHeight: '120px' }}
         />
         <button
           type="submit"
           disabled={!input.trim() || disabled}
-          className="bg-green hover:bg-greenLight text-white rounded-xl px-4 py-3 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="bg-green-700 hover:bg-green-600 text-white rounded-xl px-4 py-3 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           aria-label="Send message"
         >
           <svg

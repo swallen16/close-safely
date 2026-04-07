@@ -83,7 +83,7 @@ export default function ChatWidget() {
       const assistantMessage: Message = {
         id: `assistant-${Date.now()}`,
         role: 'assistant',
-        content: data.reply ?? 'Sorry — I couldn’t generate a reply.',
+        content: data.reply ?? "Sorry — I couldn’t generate a reply.",
         timestamp: new Date(),
       };
 
@@ -109,7 +109,7 @@ export default function ChatWidget() {
       {/* Chat Toggle Button */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed bottom-6 right-6 z-50 bg-green hover:bg-greenLight text-white rounded-full p-4 shadow-glow transition-all duration-300 hover:scale-105"
+        className="fixed bottom-6 right-6 z-50 bg-green-700 hover:bg-green-600 text-white rounded-full p-4 shadow-lg transition-all duration-300 hover:scale-105"
         aria-label={isOpen ? 'Close chat' : 'Open chat'}
       >
         <AnimatePresence mode="wait">
@@ -161,11 +161,11 @@ export default function ChatWidget() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="fixed bottom-24 right-6 z-50 w-[380px] max-w-[calc(100vw-32px)] h-[520px] max-h-[calc(100vh-120px)] bg-black/95 backdrop-blur-xl border border-stroke rounded-3xl shadow-glow flex flex-col overflow-hidden"
+            className="fixed bottom-24 right-6 z-50 w-[380px] max-w-[calc(100vw-32px)] h-[520px] max-h-[calc(100vh-120px)] bg-gray-900 backdrop-blur-xl border border-gray-700 rounded-3xl shadow-2xl flex flex-col overflow-hidden"
           >
             {/* Header */}
-            <div className="bg-panel border-b border-stroke px-4 py-3 flex items-center gap-3">
-              <div className="w-10 h-10 bg-gradient-to-br from-green to-gold rounded-full flex items-center justify-center">
+            <div className="bg-gray-800 border-b border-gray-700 px-4 py-3 flex items-center gap-3">
+              <div className="w-10 h-10 bg-gradient-to-br from-green-700 to-yellow-500 rounded-full flex items-center justify-center">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 text-black">
                   <path
                     fillRule="evenodd"
@@ -177,8 +177,8 @@ export default function ChatWidget() {
 
               <div className="flex-1">
                 <div className="font-semibold text-sm">
-                  <span className="text-greenLight">Close</span>{' '}
-                  <span className="text-goldLight">Safely</span>
+                  <span className="text-green-400">Close</span>{' '}
+                  <span className="text-yellow-400">Safely</span>
                 </div>
                 <p className="text-xs text-white/50">AI Assistant</p>
               </div>
@@ -220,7 +220,7 @@ export default function ChatWidget() {
 
               {isTyping && (
                 <div className="flex justify-start">
-                  <div className="bg-panel border border-stroke rounded-2xl rounded-bl-md px-4 py-3">
+                  <div className="bg-gray-800 border border-gray-700 rounded-2xl rounded-bl-md px-4 py-3">
                     <div className="flex gap-1">
                       <span className="w-2 h-2 bg-white/40 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
                       <span className="w-2 h-2 bg-white/40 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />

@@ -31,8 +31,8 @@ export default function ChatMessage({ message }: ChatMessageProps) {
       <div
         className={`max-w-[80%] rounded-2xl px-4 py-3 ${
           isUser
-            ? 'bg-green text-white rounded-br-md'
-            : 'bg-panel border border-stroke text-white/90 rounded-bl-md'
+            ? 'bg-green-700 text-white rounded-br-md'
+            : 'bg-gray-800 border border-gray-700 text-white/90 rounded-bl-md'
         }`}
       >
         <p className="text-sm leading-relaxed whitespace-pre-wrap">{message.content}</p>
