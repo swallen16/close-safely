@@ -12,6 +12,7 @@ import Header from "./components/Header";
 import Hero from "./components/Hero";
 import HowItWorks from "./components/HowItWorks";
 import Why from "./components/Why";
+import { ChatWidget } from "./components/chat";
 
 export default function Home() {
   const [active, setActive] = useState("Home");
@@ -40,6 +41,7 @@ export default function Home() {
       <main className="flex-1">{sections[active] ?? sections.Home}</main>
       <Footer setActive={setActive} />
       <CookieBanner />
+      <ChatWidget />
     </div>
   );
 }
