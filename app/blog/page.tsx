@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { posts } from "./posts";
+import BlogPostList from "./BlogPostList";
 
 export const metadata = {
   title: "Blog | Close Safely",
@@ -35,34 +36,6 @@ export default function BlogPage() {
         </div>
 
         <BlogPostList posts={posts} />
-              <Link href={`/blog/${post.slug}`}>
-                <h2 className="mb-3 text-2xl font-semibold tracking-tight text-gray-900 transition-colors group-hover:text-green-700">
-                  {post.title}
-                </h2>
-              </Link>
-              <p className="mb-4 leading-relaxed text-gray-500">{post.excerpt}</p>
-              <Link
-                href={`/blog/${post.slug}`}
-                className="inline-flex items-center gap-1.5 text-sm font-semibold text-green-700 transition-colors hover:text-green-800"
-              >
-                Read more
-                <svg
-                  className="h-4 w-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </Link>
-            </article>
-          ))}
-        </div>
       </div>
     </main>
   );
