@@ -61,7 +61,7 @@ export default function SignupPage() {
           </form>
           <p className="mt-6 text-center text-sm text-gray-500">
             Already have an account?{" "}
-            <Link href="/login" className="font-semibold text-green-700">
+            <Link href="https://app.closesafely.ai/login" className="font-semibold text-green-700">
               Log in
             </Link>
           </p>

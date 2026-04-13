@@ -30,7 +30,7 @@ export default function Hero({ setActive }: HeroProps) {
           </p>
           <div className="mb-12 flex flex-wrap gap-3">
             <Link
-              href="/signup"
+              href="https://app.closesafely.ai/register/"
               className="inline-flex items-center gap-2 rounded-xl bg-green-700 px-6 py-3 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:scale-[1.02] hover:bg-green-800 hover:shadow-lg active:scale-[0.99]"
             >
               Get Started Free <ArrowRight />

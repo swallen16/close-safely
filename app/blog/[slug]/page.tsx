@@ -140,7 +140,7 @@ export default async function BlogPostPage({
             protects brokers and borrowers from wire fraud and closing-day risk.
           </p>
           <Link
-            href="/signup"
+            href="https://app.closesafely.ai/register/"
             className="inline-flex rounded-lg bg-green-700 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-green-800"
           >
             Get Started

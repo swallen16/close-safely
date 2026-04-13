@@ -61,13 +61,13 @@ export default function Header({
         {/* CTA buttons */}
         <div className="hidden md:flex items-center gap-2.5">
           <Link
-            href="/login"
+            href="https://app.closesafely.ai/login"
             className="rounded-lg border border-gray-200 px-4 py-2 text-sm font-medium text-gray-600 transition-all duration-300 hover:scale-[1.02] hover:border-gray-300 hover:bg-gray-50 hover:text-gray-900 active:scale-[0.99]"
           >
             Log In
           </Link>
           <Link
-            href="/signup"
+            href="https://app.closesafely.ai/register/"
             className="rounded-lg bg-green-700 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:scale-[1.02] hover:bg-green-800 hover:shadow-lg active:scale-[0.99]"
           >
             Get Started
@@ -108,13 +108,13 @@ export default function Header({
           </Link>
           <div className="mt-3 flex gap-2 border-t border-gray-100 pt-3">
             <Link
-              href="/login"
+              href="https://app.closesafely.ai/login"
               className="flex-1 rounded-lg border border-gray-200 py-2.5 text-center text-sm font-medium text-gray-700 transition-all duration-300 hover:bg-gray-50"
             >
               Log In
             </Link>
             <Link
-              href="/signup"
+              href="https://app.closesafely.ai/register/"
               className="flex-1 rounded-lg bg-green-700 py-2.5 text-center text-sm font-semibold text-white transition-all duration-300 hover:bg-green-800"
             >
               Get Started

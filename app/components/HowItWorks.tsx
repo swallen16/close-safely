@@ -93,7 +93,7 @@ export default function HowItWorks() {
           </p>
           <div className="flex flex-wrap justify-center gap-3">
             <Link
-              href="/signup"
+              href="https://app.closesafely.ai/register/"
               className="inline-flex items-center gap-2 rounded-xl bg-green-700 px-6 py-5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-green-800"
             >
               Start Your First Transaction with Close Safely
