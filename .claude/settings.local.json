@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e \"const fs=require\\('fs'\\); const c=fs.readFileSync\\('c:/Users/Sidoney/Desktop/close-safely/app/blog/page.tsx','utf8'\\); console.log\\(c\\)\")",
+      "Bash(node -e ':*)",
+      "Bash(node -e \"const fs=require\\('fs'\\); const p=fs.readFileSync\\('c:/Users/Sidoney/Desktop/close-safely/app/blog/page.tsx','utf8'\\); console.log\\(p\\)\")",
+      "Bash(node -e \"const fs=require\\('fs'\\); const p=fs.readFileSync\\('c:/Users/Sidoney/Desktop/close-safely/app/blog/posts.ts','utf8'\\).slice\\(0,400\\); console.log\\(p\\)\")",
+      "Bash(node -e \"const fs=require\\('fs'\\); const files=fs.readdirSync\\('c:/Users/Sidoney/Desktop/close-safely/app/blog/'\\); console.log\\(files\\)\")",
+      "Bash(node)",
+      "Bash(node -e \"const fs=require\\('fs'\\); const h=fs.readFileSync\\('c:/Users/Sidoney/Desktop/close-safely/app/components/Header.tsx','utf8'\\); console.log\\(h.slice\\(0,300\\)\\)\")",
+      "Bash(node -e \"const fs=require\\('fs'\\); const h=fs.readFileSync\\('c:/Users/Sidoney/Desktop/close-safely/app/components/Hero.tsx','utf8'\\); console.log\\(h.slice\\(0,100\\)\\)\")",
+      "Bash(node -e \"const fs=require\\('fs'\\); const h=fs.readFileSync\\('c:/Users/Sidoney/Desktop/close-safely/app/components/HowItWorks.tsx','utf8'\\); console.log\\(h.slice\\(0,100\\)\\)\")",
+      "Bash(node -e \"const fs=require\\('fs'\\); const h=fs.readFileSync\\('c:/Users/Sidoney/Desktop/close-safely/app/components/Header.tsx','utf8'\\); const i=h.indexOf\\('handleSelect'\\); console.log\\(h.slice\\(i, i+200\\)\\)\")",
+      "Bash(node -e \"const fs=require\\('fs'\\); const h=fs.readFileSync\\('c:/Users/Sidoney/Desktop/close-safely/app/components/Hero.tsx','utf8'\\); const i=h.indexOf\\('register'\\); console.log\\(h.slice\\(i-50, i+200\\)\\)\")",
+      "Bash(node -e \"const fs=require\\('fs'\\); const h=fs.readFileSync\\('c:/Users/Sidoney/Desktop/close-safely/app/components/HowItWorks.tsx','utf8'\\); const i=h.indexOf\\('register'\\); console.log\\(h.slice\\(i-50, i+200\\)\\)\")"
+    ]
+  }
+}
