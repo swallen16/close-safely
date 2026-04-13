@@ -3,6 +3,7 @@
 import { useState } from "react";
 
 import { CheckIcon } from "./Icons";
+import { pushEvent } from "../lib/gtm";
 
 export default function Contact() {
   const [sent, setSent] = useState(false);
@@ -51,6 +52,11 @@ export default function Contact() {
             <form
               onSubmit={(event) => {
                 event.preventDefault();
+                pushEvent({
+                  event: "generate_lead",
+                  section_name: "Contact Form",
+                  page_location: window.location.pathname,
+                });
                 setSent(true);
               }}
               className="space-y-4"

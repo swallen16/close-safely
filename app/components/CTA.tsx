@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { pushEvent } from "../lib/gtm";
 import { ArrowRight, CheckIcon } from "./Icons";
 
 export default function CTA() {
@@ -24,7 +27,7 @@ export default function CTA() {
           >
             Get Started Free <ArrowRight />
           </Link>
-          <button className="rounded-xl border border-gray-200 px-7 py-3.5 text-[15px] font-semibold text-gray-700 transition-all duration-300 hover:scale-[1.02] hover:border-gray-300 hover:bg-gray-50 hover:shadow-sm active:scale-[0.99]">
+          <button onClick={() => pushEvent({ event: "cta_click", button_text: "Book a Demo", section_name: "CTA", page_location: window.location.pathname, link_url: "" })} className="rounded-xl border border-gray-200 px-7 py-3.5 text-[15px] font-semibold text-gray-700 transition-all duration-300 hover:scale-[1.02] hover:border-gray-300 hover:bg-gray-50 hover:shadow-sm active:scale-[0.99]">
             Book a Demo
           </button>
         </div>

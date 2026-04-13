@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { pushEvent } from "../lib/gtm";
 
 type HeaderProps = {
   active?: string;
@@ -52,6 +53,7 @@ export default function Header({
           ))}
           <Link
             href="/blog"
+            onClick={() => pushEvent({ event: "nav_click", button_text: "Blog", section_name: "Navbar", page_location: window.location.pathname, link_url: "/blog" })}
             className="rounded-lg px-3.5 py-2 text-sm font-medium text-gray-500 transition-all duration-300 hover:scale-[1.02] hover:text-gray-800 hover:bg-gray-50"
           >
             Blog
@@ -68,6 +70,7 @@ export default function Header({
           </Link>
           <Link
             href="https://app.closesafely.ai/register/"
+            onClick={() => pushEvent({ event: "cta_click", button_text: "Get Started", section_name: "Navbar", page_location: window.location.pathname, link_url: "https://app.closesafely.ai/register/" })}
             className="rounded-lg bg-green-700 px-4 py-2 text-sm font-semibold text-white shadow-sm transition-all duration-300 hover:scale-[1.02] hover:bg-green-800 hover:shadow-lg active:scale-[0.99]"
           >
             Get Started
@@ -115,6 +118,7 @@ export default function Header({
             </Link>
             <Link
               href="https://app.closesafely.ai/register/"
+              onClick={() => pushEvent({ event: "cta_click", button_text: "Get Started", section_name: "Navbar", page_location: window.location.pathname, link_url: "https://app.closesafely.ai/register/" })}
               className="flex-1 rounded-lg bg-green-700 py-2.5 text-center text-sm font-semibold text-white transition-all duration-300 hover:bg-green-800"
             >
               Get Started

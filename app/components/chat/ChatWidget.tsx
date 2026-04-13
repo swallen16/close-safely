@@ -1,6 +1,7 @@
 ﻿'use client';
 
 import { useState, useRef, useEffect, useCallback } from 'react';
+import { pushEvent } from '../../lib/gtm';
 import { motion, AnimatePresence } from 'framer-motion';
 import ChatMessage, { Message } from './ChatMessage';
 import ChatInput from './ChatInput';
@@ -108,7 +109,13 @@ export default function ChatWidget() {
     <>
       {/* Chat Toggle Button */}
       <button
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={() => {
+          const opening = !isOpen;
+          setIsOpen(opening);
+          if (opening) {
+            pushEvent({ event: "chat_used", section_name: "Chat Widget", page_location: window.location.pathname });
+          }
+        }}
         className="fixed bottom-6 right-6 z-70 bg-green-700 hover:bg-green-600 text-white rounded-full p-4 shadow-lg transition-all duration-300 hover:scale-105"
         aria-label={isOpen ? 'Close chat' : 'Open chat'}
       >

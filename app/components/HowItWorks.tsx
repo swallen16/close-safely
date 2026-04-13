@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { pushEvent } from "../lib/gtm";
 import { ArrowRight } from "./Icons";
 
 export default function HowItWorks() {
@@ -94,6 +97,7 @@ export default function HowItWorks() {
           <div className="flex flex-wrap justify-center gap-3">
             <Link
               href="https://app.closesafely.ai/register/"
+              onClick={() => pushEvent({ event: "cta_click", button_text: "Start Your First Transaction with Close Safely", section_name: "How It Works", page_location: window.location.pathname, link_url: "https://app.closesafely.ai/register/" })}
               className="inline-flex items-center gap-2 rounded-xl bg-green-700 px-6 py-5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-green-800"
             >
               Start Your First Transaction with Close Safely

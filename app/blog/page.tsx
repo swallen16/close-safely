@@ -34,20 +34,7 @@ export default function BlogPage() {
           </p>
         </div>
 
-        <div className="space-y-10">
-          {posts.map((post) => (
-            <article
-              key={post.slug}
-              className="group border-b border-gray-100 pb-10 last:border-none"
-            >
-              <div className="mb-3 flex items-center gap-3">
-                <span className="rounded-full bg-green-50 px-3 py-1 text-xs font-semibold text-green-700">
-                  {post.category}
-                </span>
-                <span className="text-xs text-gray-400">{post.date}</span>
-                <span className="text-xs text-gray-400">·</span>
-                <span className="text-xs text-gray-400">{post.readTime}</span>
-              </div>
+        <BlogPostList posts={posts} />
               <Link href={`/blog/${post.slug}`}>
                 <h2 className="mb-3 text-2xl font-semibold tracking-tight text-gray-900 transition-colors group-hover:text-green-700">
                   {post.title}
