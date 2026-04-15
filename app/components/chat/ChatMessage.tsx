@@ -35,7 +35,17 @@ export default function ChatMessage({ message }: ChatMessageProps) {
             : 'bg-gray-800 border border-gray-700 text-white/90 rounded-bl-md'
         }`}
       >
-        <p className="text-sm leading-relaxed whitespace-pre-wrap">{message.content}</p>
+        <p className="text-sm leading-relaxed whitespace-pre-wrap">
+          {message.content.split(/(https?:\/\/[^\s]+)/g).map((part, i) =>
+            /^https?:\/\//.test(part) ? (
+              <a key={i} href={part} target="_blank" rel="noopener noreferrer" className="underline opacity-80 hover:opacity-100 break-all">
+                {part}
+              </a>
+            ) : (
+              part
+            )
+          )}
+        </p>
         <span className="block text-[10px] mt-1 opacity-50">
           {message.timestamp.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
         </span>

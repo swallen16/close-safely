@@ -1,19 +1,27 @@
 export interface Env {
-  cschatbot: Ai;
+  GEMINI_API_KEY: string;
 }
 
-const SYSTEM_PROMPT = `You are the AI assistant for Close Safely, a secure transaction platform for real estate brokers and borrowers.
+const SYSTEM = `You are the AI assistant for Close Safely.
 
-Close Safely gives brokers and borrowers a shared, transparent space to move through transactions with clarity and finish with confidence. Key facts:
-- $2.4B+ in transactions secured, 18K+ active brokers, 99.9% platform uptime, 0 unresolved fraud cases
-- Security: AES-256 encryption, SOC 2 Type II certified, TLS 1.3 in transit, end-to-end encrypted, immutable audit trail, role-based access
-- Transparency: both parties see the same real-time view, full action history, shared document access
-- Efficiency: guided step-by-step flow, automated status updates
-- Trust Framework: dual-confirmation close, neutral platform design, dispute-ready records
-- Pricing: no hidden fees
-- Get started at closesafely.com/signup (free to start)
+Rules:
+- One sentence only. Never more.
+- Answer ONLY the user's exact question.
+- Do NOT explain the platform unless asked.
+- Do NOT list features, benefits, or steps unless asked.
+- Do NOT repeat yourself across responses.
+- Do NOT act like a salesperson.
 
-Keep responses helpful, concise, and professional. If you don't know something specific, offer to connect them with the team via the contact page. Do not make up pricing, legal, or compliance details you are unsure of.`;
+Behavior:
+- Be direct, calm, and helpful.
+- If the user shows intent (e.g. wants to sign up), then provide the correct link.
+- Otherwise, do not push links or actions.
+
+Links:
+- Sign up: https://app.closesafely.ai/register/
+- Log in: https://app.closesafely.ai/login
+
+Plain text only. No markdown, no bullet points.`;
 
 const CORS_HEADERS = {
   'Access-Control-Allow-Origin': '*',
@@ -21,10 +29,53 @@ const CORS_HEADERS = {
   'Access-Control-Allow-Headers': 'Content-Type',
 };
 
+function clean(raw: string): string {
+  const stripped = raw
+    .split('\n')
+    .filter((line) => !/^\s*([-*#]|\d+[.)])/.test(line))
+    .join(' ')
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '$2')
+    .replace(/\*\*(.+?)\*\*/g, '$1')
+    .replace(/\*(.+?)\*/g, '$1')
+    .replace(/\s{2,}/g, ' ')
+    .trim();
+
+  const corrected = stripped
+    .replace(
+      /https?:\/\/(?!app\.closesafely\.ai)[^\s]*closesafely[^\s]*/gi,
+      'https://app.closesafely.ai/register/'
+    )
+    .replace(
+      /(?<!app\.)closesafely\.com[^\s]*/gi,
+      'https://app.closesafely.ai/register/'
+    );
+
+  const match = corrected.match(/^[^.!?]+[.!?]/);
+  if (match) return match[0].trim();
+
+  const words = corrected.split(' ');
+  let out = '';
+  for (const word of words) {
+    if ((out + ' ' + word).length > 140) break;
+    out += (out ? ' ' : '') + word;
+  }
+  return out.trim();
+}
+
 export default {
   async fetch(request: Request, env: Env): Promise<Response> {
     if (request.method === 'OPTIONS') {
       return new Response(null, { status: 204, headers: CORS_HEADERS });
+    }
+
+    const url = new URL(request.url);
+
+    if (request.method === 'GET' && url.pathname === '/') {
+      return new Response('OK. POST JSON to /chat', { status: 200, headers: CORS_HEADERS });
+    }
+
+    if (url.pathname !== '/chat') {
+      return new Response('Not found', { status: 404, headers: CORS_HEADERS });
     }
 
     if (request.method !== 'POST') {
@@ -50,28 +101,66 @@ export default {
       });
     }
 
-    const messages: { role: 'system' | 'user' | 'assistant'; content: string }[] = [
-      { role: 'system', content: SYSTEM_PROMPT },
-      ...history
-        .filter((m) => m.role === 'user' || m.role === 'assistant')
-        .slice(-10)
-        .map((m) => ({ role: m.role as 'user' | 'assistant', content: m.content })),
-      { role: 'user', content: message.trim() },
+    // Gemini requires strictly alternating user/model turns starting with user
+    const recentHistory = history
+      .filter((m) => m.role === 'user' || m.role === 'assistant')
+      .slice(-4)
+      .reduce<{ role: string; content: string }[]>((acc, m) => {
+        const geminiRole = m.role === 'assistant' ? 'model' : 'user';
+        if (acc.length > 0 && acc[acc.length - 1].role === geminiRole) return acc; // skip duplicate role
+        acc.push({ role: geminiRole, content: m.content });
+        return acc;
+      }, []);
+
+    // Ensure history starts with a user turn
+    const trimmedHistory = recentHistory[0]?.role === 'user' ? recentHistory : recentHistory.slice(1);
+
+    const contents = [
+      ...trimmedHistory.map((m) => ({
+        role: m.role,
+        parts: [{ text: m.content }],
+      })),
+      { role: 'user', parts: [{ text: message.trim() }] },
     ];
 
-    const result = await env.cschatbot.run('@cf/meta/llama-3.1-8b-instruct', {
-      messages,
-      max_tokens: 512,
-    });
+    let raw: string;
+    try {
+      const res = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${env.GEMINI_API_KEY}`,
+        {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            system_instruction: { parts: [{ text: SYSTEM }] },
+            contents,
+            generationConfig: { maxOutputTokens: 80, temperature: 0.2 },
+          }),
+        }
+      );
 
-    const reply =
-      typeof result === 'object' && result !== null && 'response' in result
-        ? String((result as { response: string }).response)
-        : 'Sorry, I was unable to generate a response.';
+      if (!res.ok) {
+        const errText = await res.text();
+        throw new Error(`Gemini ${res.status}: ${errText}`);
+      }
 
-    return new Response(JSON.stringify({ reply }), {
+      const data = await res.json() as {
+        candidates?: { content?: { parts?: { text?: string }[] } }[];
+      };
+
+      raw = data?.candidates?.[0]?.content?.parts?.[0]?.text ?? '';
+      if (!raw) throw new Error('Empty response');
+    } catch (err) {
+  console.error("Gemini FULL ERROR:", err);
+
+  return new Response(
+    JSON.stringify({ reply: String(err) }),
+    { status: 200, headers: { ...CORS_HEADERS, "Content-Type": "application/json" } }
+  );
+}
+
+    return new Response(JSON.stringify({ reply: clean(raw) }), {
       status: 200,
       headers: { ...CORS_HEADERS, 'Content-Type': 'application/json' },
     });
   },
-} satisfies ExportedHandler<Env>;
+};

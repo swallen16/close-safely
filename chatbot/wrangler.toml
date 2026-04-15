@@ -1,4 +1,4 @@
-name = "close-safely-chatbot"
+name = "close-safely"
 main = "src/index.ts"
 compatibility_date = "2024-11-01"
 account_id = "90808e1ac5df1e6f97c179e59514cbb7"

@@ -12,7 +12,9 @@
       "Bash(node -e \"const fs=require\\('fs'\\); const h=fs.readFileSync\\('c:/Users/Sidoney/Desktop/close-safely/app/components/HowItWorks.tsx','utf8'\\); console.log\\(h.slice\\(0,100\\)\\)\")",
       "Bash(node -e \"const fs=require\\('fs'\\); const h=fs.readFileSync\\('c:/Users/Sidoney/Desktop/close-safely/app/components/Header.tsx','utf8'\\); const i=h.indexOf\\('handleSelect'\\); console.log\\(h.slice\\(i, i+200\\)\\)\")",
       "Bash(node -e \"const fs=require\\('fs'\\); const h=fs.readFileSync\\('c:/Users/Sidoney/Desktop/close-safely/app/components/Hero.tsx','utf8'\\); const i=h.indexOf\\('register'\\); console.log\\(h.slice\\(i-50, i+200\\)\\)\")",
-      "Bash(node -e \"const fs=require\\('fs'\\); const h=fs.readFileSync\\('c:/Users/Sidoney/Desktop/close-safely/app/components/HowItWorks.tsx','utf8'\\); const i=h.indexOf\\('register'\\); console.log\\(h.slice\\(i-50, i+200\\)\\)\")"
+      "Bash(node -e \"const fs=require\\('fs'\\); const h=fs.readFileSync\\('c:/Users/Sidoney/Desktop/close-safely/app/components/HowItWorks.tsx','utf8'\\); const i=h.indexOf\\('register'\\); console.log\\(h.slice\\(i-50, i+200\\)\\)\")",
+      "Bash(node -e \"const fs=require\\('fs'\\); console.log\\(fs.readFileSync\\('c:/Users/Sidoney/Desktop/close-safely/app/components/CookieBanner.tsx','utf8'\\)\\)\")",
+      "Bash(npx tsc:*)"
     ]
   }
 }

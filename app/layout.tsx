@@ -72,6 +72,14 @@ export default function RootLayout({
     })(window,document,'script','dataLayer','GTM-PKWRVN8H');
   `}
 </Script>
+        <Script
+          id="jira-widget"
+          data-jsd-embedded
+          data-key="f29b8921-fb2e-4f76-b00d-015ed6ea1015"
+          data-base-url="https://jsd-widget.atlassian.com"
+          src="https://jsd-widget.atlassian.com/assets/embed.js"
+          strategy="afterInteractive"
+        />
       </head>
       <body className="min-h-full flex flex-col">
         <noscript>

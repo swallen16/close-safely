@@ -15,6 +15,11 @@ export default function Header({
 }: HeaderProps) {
   const [open, setOpen] = useState(false);
   const links = ["Home", "About", "How It Works", "Features", "Contact"];
+
+  const openJiraWidget = () => {
+    const trigger = document.querySelector<HTMLElement>('.atlwdg-trigger');
+    if (trigger) trigger.click();
+  };
   const handleSelect = (section: string) => {
     setActive?.(section);
     setOpen(false);
@@ -58,6 +63,12 @@ export default function Header({
           >
             Blog
           </Link>
+          <button
+            onClick={openJiraWidget}
+            className="rounded-lg px-3.5 py-2 text-sm font-medium text-gray-500 transition-all duration-300 hover:scale-[1.02] hover:text-gray-800 hover:bg-gray-50"
+          >
+            Support
+          </button>
         </nav>
 
         {/* CTA buttons */}
@@ -109,6 +120,12 @@ export default function Header({
           >
             Blog
           </Link>
+          <button
+            onClick={() => { setOpen(false); openJiraWidget(); }}
+            className="block w-full rounded-lg px-3 py-2.5 text-left text-sm font-medium text-gray-600 transition-all duration-300 hover:bg-gray-50"
+          >
+            Support
+          </button>
           <div className="mt-3 flex gap-2 border-t border-gray-100 pt-3">
             <Link
               href="https://app.closesafely.ai/login"
