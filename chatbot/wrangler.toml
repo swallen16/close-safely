@@ -1,11 +1,4 @@
 name = "close-safely"
-<<<<<<< HEAD
 main = "src/index.ts"
-=======
-main = "src/index.js"
->>>>>>> 7f93fed1ed11040055901528c1a93729442247bc
 compatibility_date = "2024-11-01"
 account_id = "90808e1ac5df1e6f97c179e59514cbb7"
-
-[ai]
-binding = "AI"
