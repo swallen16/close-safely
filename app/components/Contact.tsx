@@ -7,6 +7,44 @@ import { pushEvent } from "../lib/gtm";
 
 export default function Contact() {
   const [sent, setSent] = useState(false);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setError(null);
+    setLoading(true);
+
+    const form = event.currentTarget;
+    const data = {
+      name: (form.elements.namedItem("name") as HTMLInputElement).value,
+      email: (form.elements.namedItem("email") as HTMLInputElement).value,
+      company: (form.elements.namedItem("company") as HTMLInputElement).value,
+      message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
+    };
+
+    try {
+      const res = await fetch("https://contact-worker.sidoney-wallen.workers.dev", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(data),
+      });
+
+      if (!res.ok) throw new Error("Failed to send message. Please try again.");
+
+      pushEvent({
+        event: "generate_lead",
+        section_name: "Contact Form",
+        page_location: window.location.pathname,
+      });
+
+      setSent(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  }
 
   return (
     <section className="bg-gray-50 px-6 py-28">
@@ -25,7 +63,7 @@ export default function Contact() {
           </p>
           <div className="space-y-3">
             {[
-              { icon: "EM", label: "info@themislending.com" },
+              { icon: "EM", label: "support@themislending.atlassian.net" },
               { icon: "ET", label: "Mon-Fri, 9am-6pm ET" },
               { icon: "EP", label: "Enterprise partnerships available" },
             ].map(({ icon, label }) => (
@@ -46,21 +84,16 @@ export default function Contact() {
                 <CheckIcon />
               </div>
               <h3 className="mb-2 font-semibold text-gray-900">Message received</h3>
-              <p className="text-sm text-gray-400">We&apos;ll get back to you within 24 hours.</p>
+              <p className="mb-6 text-sm text-gray-400">We&apos;ll get back to you within 24 hours.</p>
+              <button
+                onClick={() => setSent(false)}
+                className="text-sm font-semibold text-green-700 hover:text-green-800 transition-colors"
+              >
+                Send another message
+              </button>
             </div>
           ) : (
-            <form
-              onSubmit={(event) => {
-                event.preventDefault();
-                pushEvent({
-                  event: "generate_lead",
-                  section_name: "Contact Form",
-                  page_location: window.location.pathname,
-                });
-                setSent(true);
-              }}
-              className="space-y-4"
-            >
+            <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label className="mb-1.5 block text-xs font-semibold uppercase tracking-wide text-gray-500">
@@ -68,6 +101,7 @@ export default function Contact() {
                   </label>
                   <input
                     required
+                    name="name"
                     type="text"
                     placeholder="Your name"
                     className="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm text-gray-800 placeholder-gray-300 transition-all focus:border-green-400 focus:outline-none focus:ring-2 focus:ring-green-50"
@@ -79,6 +113,7 @@ export default function Contact() {
                   </label>
                   <input
                     required
+                    name="email"
                     type="email"
                     placeholder="you@example.com"
                     className="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm text-gray-800 placeholder-gray-300 transition-all focus:border-green-400 focus:outline-none focus:ring-2 focus:ring-green-50"
@@ -90,6 +125,7 @@ export default function Contact() {
                   Company <span className="normal-case font-normal text-gray-300">(optional)</span>
                 </label>
                 <input
+                  name="company"
                   type="text"
                   placeholder="Your company"
                   className="w-full rounded-xl border border-gray-200 px-4 py-3 text-sm text-gray-800 placeholder-gray-300 transition-all focus:border-green-400 focus:outline-none focus:ring-2 focus:ring-green-50"
@@ -101,16 +137,21 @@ export default function Contact() {
                 </label>
                 <textarea
                   required
+                  name="message"
                   rows={4}
                   placeholder="Tell us how we can help..."
                   className="w-full resize-none rounded-xl border border-gray-200 px-4 py-3 text-sm text-gray-800 placeholder-gray-300 transition-all focus:border-green-400 focus:outline-none focus:ring-2 focus:ring-green-50"
                 />
               </div>
+              {error && (
+                <p className="text-sm text-red-500">{error}</p>
+              )}
               <button
                 type="submit"
-                className="w-full rounded-xl bg-green-700 py-3.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-green-800"
+                disabled={loading}
+                className="w-full rounded-xl bg-green-700 py-3.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-green-800 disabled:opacity-60 disabled:cursor-not-allowed"
               >
-                Send Message
+                {loading ? "Sending..." : "Send Message"}
               </button>
               <p className="pt-1 text-center text-xs text-gray-400">
                 We&apos;ll get back to you within 24 hours.

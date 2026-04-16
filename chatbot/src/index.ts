@@ -2,20 +2,26 @@ export interface Env {
   GEMINI_API_KEY: string;
 }
 
-const SYSTEM = `You are the AI assistant for Close Safely.
+const SYSTEM = `You are the AI assistant for Close Safely. You are friendly, calm, and concise.
+
+About Close Safely:
+Close Safely is a secure transaction platform for brokers and borrowers. It gives both parties a shared, transparent space to move through real estate transactions with clarity and finish with confidence. Every step is visible, every expectation is documented, and neither party operates in the dark. The platform is end-to-end encrypted (AES-256), SOC 2 Type II certified, and uses TLS 1.3 in transit. Key features include live status for both sides, a full action history, shared document access, a guided step-by-step flow, automated status updates, dual-confirmation close, and dispute-ready records. It has secured over $2.4B in transactions and is trusted by 18K+ active brokers. There are no hidden fees.
 
 Rules:
-- One sentence only. Never more.
-- Answer ONLY the user's exact question.
-- Do NOT explain the platform unless asked.
-- Do NOT list features, benefits, or steps unless asked.
+- Keep responses to 1-2 sentences.
+- Answer the user's question naturally and helpfully.
+- Do NOT list features or steps unless directly asked.
 - Do NOT repeat yourself across responses.
 - Do NOT act like a salesperson.
 
+Handling unclear or off-topic input:
+- If the message is unclear, nonsensical, or unrelated to Close Safely, respond warmly: ask what they'd like to know about Close Safely. Never say "I cannot answer that."
+- If the user seems frustrated or confused, acknowledge it and offer to help.
+
 Behavior:
-- Be direct, calm, and helpful.
-- If the user shows intent (e.g. wants to sign up), then provide the correct link.
-- Otherwise, do not push links or actions.
+- Be direct, warm, and helpful.
+- If the user shows intent to sign up or log in, provide the correct link.
+- Otherwise, do not push links or actions unprompted.
 
 Links:
 - Sign up: https://app.closesafely.ai/register/
@@ -32,7 +38,7 @@ const CORS_HEADERS = {
 function clean(raw: string): string {
   const stripped = raw
     .split('\n')
-    .filter((line) => !/^\s*([-*#]|\d+[.)])/.test(line))
+    .map((line) => line.replace(/^\s*([-*#]|\d+[.):])\s*/, '')) // convert list markers to plain text
     .join(' ')
     .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '$2')
     .replace(/\*\*(.+?)\*\*/g, '$1')
@@ -40,7 +46,7 @@ function clean(raw: string): string {
     .replace(/\s{2,}/g, ' ')
     .trim();
 
-  const corrected = stripped
+  return stripped
     .replace(
       /https?:\/\/(?!app\.closesafely\.ai)[^\s]*closesafely[^\s]*/gi,
       'https://app.closesafely.ai/register/'
@@ -49,20 +55,9 @@ function clean(raw: string): string {
       /(?<!app\.)closesafely\.com[^\s]*/gi,
       'https://app.closesafely.ai/register/'
     );
-
-  const match = corrected.match(/^[^.!?]+[.!?]/);
-  if (match) return match[0].trim();
-
-  const words = corrected.split(' ');
-  let out = '';
-  for (const word of words) {
-    if ((out + ' ' + word).length > 140) break;
-    out += (out ? ' ' : '') + word;
-  }
-  return out.trim();
 }
 
-export default {
+const worker = {
   async fetch(request: Request, env: Env): Promise<Response> {
     if (request.method === 'OPTIONS') {
       return new Response(null, { status: 204, headers: CORS_HEADERS });
@@ -126,14 +121,14 @@ export default {
     let raw: string;
     try {
       const res = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${env.GEMINI_API_KEY}`,
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${env.GEMINI_API_KEY}`,
         {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
           body: JSON.stringify({
             system_instruction: { parts: [{ text: SYSTEM }] },
             contents,
-            generationConfig: { maxOutputTokens: 80, temperature: 0.2 },
+            generationConfig: { maxOutputTokens: 250, temperature: 0.2 },
           }),
         }
       );
@@ -153,7 +148,7 @@ export default {
   console.error("Gemini FULL ERROR:", err);
 
   return new Response(
-    JSON.stringify({ reply: String(err) }),
+    JSON.stringify({ reply: "I'm having trouble connecting right now. Please try again in a moment." }),
     { status: 200, headers: { ...CORS_HEADERS, "Content-Type": "application/json" } }
   );
 }
@@ -164,3 +159,5 @@ export default {
     });
   },
 };
+
+export default worker;
