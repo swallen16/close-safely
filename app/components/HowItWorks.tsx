@@ -2,7 +2,6 @@
 
 import Link from "next/link";
 import { pushEvent } from "../lib/gtm";
-import { ArrowRight } from "./Icons";
 
 export default function HowItWorks() {
   const steps = [

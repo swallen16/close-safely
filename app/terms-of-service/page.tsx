@@ -78,8 +78,11 @@ export default function TermsOfServicePage() {
             <h2 className="mb-3 text-2xl font-semibold text-gray-900">Contact</h2>
             <p className="leading-8">
               If you have questions about these terms, contact us at{" "}
-              <a href="mailto:support@themislending.com" className="font-semibold text-green-700">
-                support@themislending.com
+              <a
+                href="mailto:support@themislending.atlassian.net"
+                className="font-semibold text-green-700"
+              >
+                support@themislending.atlassian.net
               </a>.
             </p>
           </section>

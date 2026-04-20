@@ -24,6 +24,15 @@ export default function Footer({ setActive }: FooterProps) {
               Secure transaction infrastructure for brokers and borrowers.
               Every deal, protected by design.
             </p>
+            <p className="mt-4 max-w-sm text-sm leading-relaxed text-gray-500">
+              Need help? Email us at{" "}
+              <a
+                href="mailto:support@themislending.atlassian.net"
+                className="font-medium text-green-700 transition-colors hover:text-green-800"
+              >
+                support@themislending.atlassian.net
+              </a>
+            </p>
           </div>
           <div>
             <p className="mb-4 text-xs font-semibold uppercase tracking-widest text-gray-400">
