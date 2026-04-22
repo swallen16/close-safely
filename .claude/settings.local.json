@@ -31,7 +31,9 @@
       "Bash(npm update *)",
       "Bash(git add *)",
       "Bash(git commit -m ' *)",
-      "Bash(git push *)"
+      "Bash(git push *)",
+      "Bash(cat vercel.json)",
+      "Bash(cat .npmrc)"
     ]
   }
 }
