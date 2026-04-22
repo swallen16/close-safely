@@ -72,16 +72,19 @@ const ALL_SLUGS_QUERY = `
 `;
 
 export async function getAllPosts(): Promise<SanityPost[]> {
+  if (!sanityClient) return [];
   const raw = await sanityClient.fetch(ALL_POSTS_QUERY);
   return (raw ?? []).map(normalize);
 }
 
 export async function getPostBySlug(slug: string): Promise<SanityPost | null> {
+  if (!sanityClient) return null;
   const raw = await sanityClient.fetch(POST_BY_SLUG_QUERY, { slug });
   return raw ? normalize(raw) : null;
 }
 
 export async function getAllSlugs(): Promise<string[]> {
+  if (!sanityClient) return [];
   const raw = await sanityClient.fetch(ALL_SLUGS_QUERY);
   return (raw ?? []).map((r: any) => r.slug).filter(Boolean);
 }
