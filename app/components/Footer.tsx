@@ -27,10 +27,10 @@ export default function Footer({ setActive }: FooterProps) {
             <p className="mt-4 max-w-sm text-sm leading-relaxed text-gray-500">
               Need help? Email us at{" "}
               <a
-                href="mailto:support@themislending.atlassian.net"
+                href="mailto:support@closesafely.ai"
                 className="font-medium text-green-700 transition-colors hover:text-green-800"
               >
-                support@themislending.atlassian.net
+                support@closesafely.ai
               </a>
             </p>
           </div>

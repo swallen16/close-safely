@@ -2,6 +2,7 @@ export type Post = {
   slug: string;
   title: string;
   date: string;
+  author?: string;
   category: string;
   readTime: string;
   excerpt: string;
@@ -10,136 +11,235 @@ export type Post = {
 
 export const posts: Post[] = [
   {
-    slug: "wire-fraud-real-estate",
-    title: "Wire Fraud Is the Fastest-Growing Threat in Real Estate — Here's Why",
-    date: "March 28, 2026",
-    category: "Security",
+    slug: "mortgage-renewal-wave-canada",
+    title: "The Mortgage Renewal Wave Is Coming — But Most Brokers Are Looking in the Wrong Direction",
+    date: "April 22, 2026",
+    author: "Nilay Lad",
+    category: "Broker Strategy",
+    readTime: "7 min read",
+    excerpt:
+      "Nearly 60% of Canadian mortgages are set to renew between 2025–2026. This moment is being framed as a borrower challenge. More importantly, it is a structural opportunity for brokers and realtors — one that is widely underestimated.",
+    body: `Over the past decade, growth in the mortgage industry has largely been driven by acquisition — new buyers, new originations, new deals. That muscle is well built.
+
+But the next 24 months in Canada will reward something very different.
+
+Canadians are entering one of the largest mortgage renewal cycles in recent history:
+
+- Nearly 60% of mortgages are set to renew between 2025–2026
+- Approximately 1.8 million households will go through a renewal event
+- A significant majority will face materially higher payments
+
+This moment is being framed as a borrower challenge — and it is. But more importantly, it is a structural opportunity for brokers and realtors — one that is widely underestimated.
+
+## The Misconception That's Costing Brokers Real Money
+
+There is a common belief in the industry that lost deals are primarily the result of competitive pressure.
+
+In reality, a large portion of lost renewals never even enter a competitive process. They are quietly absorbed by incumbent lenders — not because they offer the best outcome, but because they offer the path of least resistance.
+
+When a borrower doesn't fully understand their options, isn't engaged early enough, and doesn't receive proactive guidance — they default to convenience.
+
+And convenience, in this market, is one of the most expensive decisions a borrower can make.
+
+## The Real Issue Is Not Effort — It's Structure
+
+Most brokers are working hard. That's not the gap.
+
+The gap is in how renewal pipelines are managed. Across the industry, we still see:
+
+- Disconnected systems and fragmented client data
+- Manual tracking of renewal timelines
+- Limited visibility into which clients are most at risk
+- No consistent way to prioritize engagement
+
+As a result, even strong portfolios behave reactively. Clients are engaged late. Opportunities are identified inconsistently. And high-value relationships are left exposed.
+
+At scale, this doesn't show up as a small inefficiency. It shows up as meaningful revenue leakage.
+
+## Why Renewals Are the Most Underleveraged Growth Engine
+
+If you step back, renewals are one of the most attractive segments in the entire mortgage lifecycle:
+
+- The client relationship already exists — sticky potential and trust
+- The cost to engage is significantly lower — greater long-term value
+- The probability of conversion is materially higher — increased ROI and efficiency of time
+
+And yet, they are often treated as administrative checkpoints rather than strategic opportunities. This is the disconnect.
+
+## The Shift That Will Define the Next Generation of Brokers
+
+The brokers who outperform in this cycle won't simply be more responsive. They will be more intentional.
+
+They will move from managing renewals to orchestrating them. From reacting to timelines to anticipating them. From pushing rates to guiding decisions.
+
+In practical terms, this means:
+
+- Engaging clients 6–12 months before renewal
+- Understanding which clients are most likely to switch and why
+- Structuring conversations around outcomes, not just pricing
+- Bringing clarity to what is often a confusing and opaque process
+
+Because in this environment, timing is no longer a tactic. It's a strategy.
+
+## Why This Matters Beyond Brokers and Realtors
+
+For realtors, this shift is just as critical. When borrowers enter renewal periods without clarity or guidance, the downstream effects are real:
+
+- Deals are delayed
+- Transactions fall through
+- Clients are forced into decisions under pressure
+
+A more structured and transparent renewal experience doesn't just improve retention — it stabilizes the broader transaction ecosystem. Better informed clients make better decisions. Better decisions lead to more predictable outcomes.
+
+## Where the Industry Is Heading
+
+From a capability perspective, what is becoming clear is that the industry doesn't need more isolated tools. It needs better systems of coordination — systems that:
+
+- Provide visibility across the client lifecycle
+- Enable earlier, more meaningful engagement
+- Bring all stakeholders into a more aligned process
+- Put the client in a position to make informed decisions
+
+This is where the real transformation will happen.
+
+## A Simple but Important Takeaway
+
+Over the next two years, growth will not be defined by who can generate the most new leads. It will be defined by who can understand their existing portfolio the best, engage clients at the right time, and deliver clarity when it matters most.
+
+Because in this market, the strongest lever isn't acquisition. It's retention, executed well.
+
+We're spending a lot of time thinking about how this shift should be designed from the ground up — both for brokers and for the clients they serve. If you're seeing similar patterns in your business or across your network, it would be great to compare notes.`,
+  },
+  {
+    slug: "why-borrowers-overpay-at-renewal",
+    title: "Why 70% of Borrowers Overpay at Renewal — And How to Fix It",
+    date: "April 15, 2026",
+    category: "Mortgage Renewals",
     readTime: "5 min read",
     excerpt:
-      "Wire fraud losses in real estate transactions topped $400 million last year. Understanding how these scams work is the first step to protecting your clients.",
-    body: `Wire fraud has become the single fastest-growing financial crime targeting real estate transactions. According to the FBI's Internet Crime Complaint Center, losses from business email compromise (BEC) schemes in real estate exceeded $400 million in the most recent reporting year — and that figure only counts reported cases.
+      "Most borrowers accept their lender's first renewal offer without shopping around. The result? Thousands of dollars left on the table every single cycle.",
+    body: `Mortgage renewal is one of the most important financial decisions a homeowner makes — and one of the most neglected. Studies consistently show that the majority of borrowers simply accept the renewal offer their existing lender sends them, often without comparison shopping or professional guidance.
 
-## How It Happens
+The cost of this passive approach is significant. Depending on the mortgage balance and rate environment, accepting a renewal rate that is even 0.25% higher than the best available option can cost a borrower thousands of dollars over a five-year term.
 
-The anatomy of a real estate wire fraud attack is deceptively simple:
+## Why This Keeps Happening
 
-1. **Email compromise.** A bad actor gains access to — or spoofs — the email account of a title company, real estate agent, or lender.
-2. **Surveillance.** The attacker monitors email threads for weeks, learning the deal timeline, the parties involved, and the expected closing date.
-3. **The switch.** Days or hours before closing, the attacker sends a convincing email with updated wiring instructions, redirecting funds to a fraudulent account.
-4. **Irreversible loss.** Wire transfers are nearly impossible to reverse once processed. By the time the fraud is discovered, the money is gone.
+The renewal process, as it exists today, is designed around the lender's timeline — not the borrower's best interests.
 
-## Why Real Estate Is Targeted
+1. **Late notification.** Most lenders send renewal offers 30 to 60 days before maturity. At that point, there is little time to research options, consult a broker, or negotiate meaningfully.
+2. **Complexity as a barrier.** Rate comparisons, prepayment penalty calculations, and term trade-offs are genuinely complex. Without professional help, many borrowers default to the path of least resistance.
+3. **Relationship inertia.** Borrowers often stick with their existing lender out of familiarity, even when better options are available elsewhere.
+4. **Broker visibility gaps.** Many brokers don't have a proactive system to identify upcoming renewals in their client base — so opportunities to re-engage slip by unnoticed.
 
-Real estate transactions involve large, predictable wire transfers with defined timelines — making them a high-value, low-complexity target. The average transaction involves multiple parties communicating by email, each representing a potential entry point.
+## What a Better Process Looks Like
 
-Brokers and borrowers are particularly vulnerable because:
+The fix isn't complicated — it requires earlier engagement, better information, and the right tools.
 
-- Transactions are time-sensitive, creating pressure to act fast
-- Most parties assume instructions from a known contact are legitimate
-- Wire fraud losses often fall on the individual — not the bank
+**For brokers:** A renewal pipeline that surfaces clients whose mortgages are maturing 6 to 12 months out gives you time to have a real conversation. Not a rushed call 30 days before the deadline — a strategic review when there are still meaningful options on the table.
 
-## What Secure Platforms Do Differently
+**For borrowers:** Access to a clear, side-by-side comparison of available options — rates, terms, penalties, and total cost — transforms the renewal from a formality into an informed financial decision.
 
-Modern closing platforms like Close Safely authenticate all parties before displaying or confirming wiring instructions. Instead of sending bank details over email, instructions are delivered through a verified, encrypted channel — making spoofed emails useless.
+**For the relationship:** When a broker proactively reaches out with useful information months before renewal, they demonstrate value. That's how you retain clients for life, not just for one term.
 
-If a platform you use today sends wire instructions by email, that is a risk worth addressing before your next closing.`,
+## The Opportunity Is Massive
+
+In Canada alone, approximately 700,000 mortgages come up for renewal every year. With the average mortgage balance above $300,000, even modest rate improvements translate into real money for borrowers — and meaningful revenue for brokers who capture the opportunity.
+
+The question isn't whether this opportunity exists. It's whether you have the system in place to act on it before someone else does.`,
   },
   {
-    slug: "verify-title-company",
-    title: "How to Verify a Title Company Before Wiring Funds",
-    date: "March 14, 2026",
-    category: "Best Practices",
+    slug: "hidden-cost-incomplete-mortgage-applications",
+    title: "The Hidden Cost of Incomplete Mortgage Applications",
+    date: "April 1, 2026",
+    category: "Mortgage Operations",
     readTime: "4 min read",
     excerpt:
-      "Before wiring closing funds, every buyer should complete a short verification checklist. These steps take minutes and can prevent devastating losses.",
-    body: `Every real estate closing involves a wire transfer — and every wire transfer is a potential target. The good news is that a small amount of due diligence before sending funds dramatically reduces your risk.
+      "Incomplete applications don't just slow deals down — they cost the Canadian mortgage industry over $4 billion annually. Here's where the leakage happens and how to stop it.",
+    body: `Every mortgage professional knows the frustration: a deal is in motion, the client is qualified, and then it stalls because of a missing document, an unverified income figure, or a miscommunication between parties. The deal might recover. Or it might not.
 
-## The Verification Checklist
+Multiply that across thousands of brokers, lenders, and transactions, and the numbers become staggering. Industry estimates suggest that incomplete and poorly structured mortgage applications cost the Canadian market over $4 billion annually — a figure that accounts for declined deals, delayed closings, administrative rework, and clients who exit the process in frustration.
 
-### 1. Confirm the title company independently
+## Where the Leakage Happens
 
-Before wiring any funds, look up the title company's phone number directly — do not use any number provided in the wire instructions email. Call to confirm:
+### 1. Document collection
 
-- That they are expecting a wire from you
-- The exact dollar amount
-- The exact account and routing numbers
+Gathering the right documents from clients at the right time remains one of the most consistently broken parts of the mortgage process. Requests go out by email. Responses come back piecemeal. Versions get mixed up. Lenders ask for items that were already submitted.
 
-If anything doesn't match, stop and call your real estate agent and lender immediately.
+The result is a process that feels disorganized to the client — and genuinely is disorganized behind the scenes.
 
-### 2. Check the email headers
+### 2. Stakeholder coordination
 
-Wire fraud often comes from lookalike domains (e.g., titleco-closing.com instead of titlecoclosing.com). Before trusting any email with wiring instructions, inspect the sender's full email address carefully — not just the display name.
+A typical mortgage transaction involves a buyer, a mortgage broker, a realtor, a lender, a lawyer, and sometimes an appraiser. Each is working from their own system, their own email thread, their own understanding of where things stand.
 
-### 3. Never wire from instructions sent via email alone
+Without a shared source of truth, critical information gets duplicated, misaligned, or simply lost.
 
-Legitimate title companies and secure closing platforms never rely solely on email to deliver wiring instructions. If you're receiving routing and account numbers via an unsecured email, ask why there isn't a secure portal for delivery.
+### 3. Application quality at submission
 
-### 4. Confirm any changes to instructions immediately
+Lenders consistently cite incomplete or poorly organized applications as a primary driver of deal delays and declines. When a broker submits a file with missing information, the lender has to request it — adding days or weeks to the timeline and creating friction that can cause clients to walk away.
 
-If you receive an email saying wiring instructions have "changed," treat it as a red flag. Fraudulent instruction changes are the most common attack vector. Call to verify before doing anything.
+### 4. Renewal gaps
 
-### 5. Use a verified closing platform
+A significant portion of incomplete application costs are invisible: they show up not as failed deals, but as renewals that never happen. Clients who had a poor origination experience don't come back. Brokers who lack a renewal management system lose clients silently, at scale.
 
-Platforms like Close Safely deliver wiring instructions through authenticated, encrypted channels — removing email from the equation entirely. When instructions only appear after identity verification, spoofed emails have nothing to spoof.
+## What Structured Workflows Change
 
-## If You've Already Wired Funds
+The solution to incomplete applications isn't more reminders or better email habits. It's a structured workflow that ensures every required item is identified upfront, tracked in real time, and visible to all parties throughout the process.
 
-If you suspect fraud, act immediately:
+When every stakeholder operates from the same workspace — with clear requirements, verified documents, and shared status updates — the rate of incomplete submissions drops dramatically. Deals close faster. Clients feel informed rather than confused. And lenders receive files they can act on immediately.
 
-1. Call your bank's fraud line and request a wire recall
-2. File a complaint with the FBI's IC3 at ic3.gov
-3. Contact your real estate agent, title company, and lender
-
-Speed matters — recalls are most likely to succeed within the first hour.`,
+The cost of incomplete applications is real and measurable. So is the return on fixing the process.`,
   },
   {
-    slug: "closing-day-security",
-    title: "What Every Buyer Should Know About Closing Day Security",
-    date: "February 26, 2026",
-    category: "Buyer's Guide",
+    slug: "brokers-increasing-retention-without-workload",
+    title: "How Top Brokers Are Increasing Retention Without Increasing Workload",
+    date: "March 18, 2026",
+    category: "Broker Growth",
     readTime: "6 min read",
     excerpt:
-      "Closing day is one of the largest financial transactions most people ever make. Here's how to make sure your money arrives safely — and what questions to ask your team.",
-    body: `For most buyers, closing day represents the largest financial transaction of their lives. The process involves coordinating between lenders, title companies, real estate agents, and attorneys — all under deadline pressure. That complexity creates real security risk.
+      "The brokers with the highest retention rates aren't working harder — they're working with better systems. Here's what separates them from the competition.",
+    body: `In the mortgage industry, client retention is the single greatest driver of long-term revenue — yet most brokers treat it as an afterthought. The typical broker spends the majority of their time acquiring new clients, closing new deals, and processing new applications. Existing clients, unless they happen to reach out, are largely invisible until their renewal date arrives.
 
-Here's what to know before you sit down at the closing table.
+By then, it's often too late.
 
-## Understand Who Holds the Money
+## The Retention Math
 
-In a typical residential transaction, the buyer wires funds to an escrow or trust account held by the title company. The title company then disburses funds to the seller, pays off the existing mortgage, and covers closing costs.
+Consider a broker managing a portfolio of 400 mortgages. If 70% of those clients renew every five years, that's roughly 56 renewals per year — an enormous opportunity. Now consider that the average funded mortgage generates a commission of $2,000 to $4,000. A broker who captures 80% of their renewals versus one who captures 50% is looking at a difference of $56,000 to $112,000 in annual revenue, with no additional client acquisition cost.
 
-This means the title company is the primary custodian of your funds — and confirming their identity and account details before wiring is non-negotiable.
+The math is straightforward. The execution is where most brokers fall short.
 
-## Ask These Questions Before Closing
+## What High-Retention Brokers Do Differently
 
-**1. How will I receive wiring instructions?**
-If the answer is "by email," ask whether there's a secondary verification step. The gold standard is a secure portal that requires identity verification before showing account details.
+### They start the renewal conversation early
 
-**2. Who should I call if I have questions the day of closing?**
-Get a direct phone number — not a general inbox — for your title contact. You may need to call quickly if something looks wrong.
+Top-performing brokers don't wait for the lender to send a renewal notice. They identify upcoming renewals 9 to 12 months in advance and initiate proactive outreach — not to sell, but to advise.
 
-**3. Has this transaction involved any last-minute changes to instructions?**
-Legitimate parties rarely change wiring instructions at the last minute. If your agent or title rep says instructions changed, verify independently before acting.
+A simple check-in call or email that says "your renewal is coming up in nine months — let's make sure you're in the best position" signals genuine value. It positions the broker as an advisor rather than a transaction processor.
 
-**4. Is your firm using a secure closing platform?**
-Ask if your title company or broker uses a verified transaction platform. Platforms that authenticate all parties and deliver instructions through encrypted channels represent a meaningful upgrade in security.
+### They segment their client base by opportunity
 
-## What a Secure Platform Looks Like
+Not all renewals are equal. A client with a $600,000 mortgage renewing in a rising rate environment is a very different conversation than a client with a $200,000 mortgage in a stable market.
 
-A platform designed for closing security typically:
+High-retention brokers know which clients represent the highest opportunity and which are most at risk of switching. They prioritize their outreach accordingly.
 
-- Verifies the identity of all parties before sharing sensitive information
-- Delivers wiring instructions through an encrypted, authenticated session — not email
-- Logs all access to instructions with timestamps
-- Alerts parties to any attempted changes in real time
+### They use systems, not memory
 
-Close Safely was built around these principles. Brokers and title professionals who use it report that buyers feel significantly more confident — and closings go more smoothly — when everyone knows the transaction is protected by design.
+The brokers who consistently lose clients to competitors aren't less skilled — they're less organized. When renewal management depends on a spreadsheet, a calendar reminder, or personal memory, things fall through the cracks.
 
-## After the Wire Goes Out
+The brokers with the best retention rates have a centralized pipeline that surfaces upcoming renewals automatically, tracks client engagement, and prompts follow-up at the right time.
 
-Once your wire is sent, confirm receipt with the title company within the hour. Most banks can confirm that a wire has left your account; the title company should confirm it has arrived. Don't wait until closing is scheduled to start — confirm receipt first.
+### They make the renewal process easy for clients
 
-Closing day doesn't have to be stressful. With the right process in place, it can be exactly what it should be: the moment a deal closes safely.`,
+Borrowers who had a smooth, transparent experience during origination are far more likely to return for renewal. Conversely, clients who felt confused or underserved during their first transaction are the easiest to poach.
+
+The retention advantage starts at origination, not at renewal.
+
+## The Compounding Effect
+
+Client retention isn't just about capturing individual renewals. A retained client is more likely to refer family and friends, more likely to return for a refinance or equity product, and more likely to stay through multiple renewal cycles.
+
+A broker who retains 80% of their book over a decade is building a fundamentally different business than one who retains 50% — not just in revenue, but in stability, reputation, and referral volume.
+
+The tools to achieve that are available. The question is whether you're using them.`,
   },
 ];
 

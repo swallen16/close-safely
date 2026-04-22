@@ -14,7 +14,24 @@
       "Bash(node -e \"const fs=require\\('fs'\\); const h=fs.readFileSync\\('c:/Users/Sidoney/Desktop/close-safely/app/components/Hero.tsx','utf8'\\); const i=h.indexOf\\('register'\\); console.log\\(h.slice\\(i-50, i+200\\)\\)\")",
       "Bash(node -e \"const fs=require\\('fs'\\); const h=fs.readFileSync\\('c:/Users/Sidoney/Desktop/close-safely/app/components/HowItWorks.tsx','utf8'\\); const i=h.indexOf\\('register'\\); console.log\\(h.slice\\(i-50, i+200\\)\\)\")",
       "Bash(node -e \"const fs=require\\('fs'\\); console.log\\(fs.readFileSync\\('c:/Users/Sidoney/Desktop/close-safely/app/components/CookieBanner.tsx','utf8'\\)\\)\")",
-      "Bash(npx tsc:*)"
+      "Bash(npx tsc:*)",
+      "Bash(node -e \"fetch\\('https://close-safely.sidoney-wallen.workers.dev', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify\\({ name: 'Sidoney', email: 'test@email.com', company: 'Test Co', message: 'Testing Jira integration' }\\) }\\).then\\(res => res.text\\(\\)\\).then\\(console.log\\).catch\\(console.error\\);\")",
+      "Bash(npx wrangler *)",
+      "Bash(node -e \"fetch\\('https://contact-worker.sidoney-wallen.workers.dev', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify\\({ name: 'Sidoney', email: 'test@email.com', company: 'Test Co', message: 'Testing Jira integration' }\\) }\\).then\\(res => res.text\\(\\)\\).then\\(console.log\\).catch\\(console.error\\);\")",
+      "Bash(node -e \"fetch\\('https://close-safely.sidoney-wallen.workers.dev/chat', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify\\({ message: 'What is Close Safely?' }\\) }\\).then\\(async res => { console.log\\('status:', res.status\\); console.log\\('body:', await res.text\\(\\)\\); }\\).catch\\(console.error\\);\")",
+      "Bash(node -e \"fetch\\('https://close-safely-chat.sidoney-wallen.workers.dev/chat', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify\\({ message: 'What is Close Safely?' }\\) }\\).then\\(r => r.json\\(\\)\\).then\\(console.log\\).catch\\(console.error\\)\")",
+      "Bash(xargs grep *)",
+      "Bash(node -e ' *)",
+      "Bash(node -e \"fetch\\('https://contact-worker.sidoney-wallen.workers.dev', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify\\({ name: 'Sidoney', email: 'test@email.com', company: 'Test Co', message: 'Testing email delivery' }\\) }\\).then\\(r => r.text\\(\\)\\).then\\(console.log\\).catch\\(console.error\\)\")",
+      "Bash(npm run *)",
+      "Bash(npx opennextjs-cloudflare *)",
+      "Bash(cmd /c \"rmdir /s /q C:\\\\Users\\\\Sidoney\\\\Desktop\\\\close-safely\\\\.open-next\")",
+      "Bash(icacls \"C:\\\\Users\\\\Sidoney\\\\Desktop\\\\close-safely\\\\.open-next\" /grant \"%USERNAME%\":F /T)",
+      "Bash(cmd /c \"icacls C:\\\\Users\\\\Sidoney\\\\Desktop\\\\close-safely\\\\.open-next /grant %USERNAME%:F /T && rmdir /s /q C:\\\\Users\\\\Sidoney\\\\Desktop\\\\close-safely\\\\.open-next\")",
+      "Bash(npm update *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)"
     ]
   }
 }

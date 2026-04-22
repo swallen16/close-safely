@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { posts, getPost } from "../posts";
+import BackToTop from "../BackToTop";
 
 export function generateStaticParams() {
   return posts.map((post) => ({ slug: post.slug }));
@@ -112,10 +113,16 @@ export default async function BlogPostPage({
         </Link>
 
         <div className="mb-10 border-b border-gray-100 pb-10">
-          <div className="mb-4 flex items-center gap-3">
+          <div className="mb-4 flex flex-wrap items-center gap-3">
             <span className="rounded-full bg-green-50 px-3 py-1 text-xs font-semibold text-green-700">
               {post.category}
             </span>
+            {post.author && (
+              <>
+                <span className="text-xs text-gray-400">By {post.author}</span>
+                <span className="text-xs text-gray-400">·</span>
+              </>
+            )}
             <span className="text-xs text-gray-400">{post.date}</span>
             <span className="text-xs text-gray-400">·</span>
             <span className="text-xs text-gray-400">{post.readTime}</span>
@@ -133,20 +140,20 @@ export default async function BlogPostPage({
             Close Safely
           </p>
           <h3 className="mb-3 text-xl font-semibold text-gray-900">
-            Protect your next closing
+            Be part of the next evolution in mortgage transactions.
           </h3>
           <p className="mb-5 text-sm leading-relaxed text-gray-600">
-            Every deal deserves secure transaction infrastructure. See how Close Safely
-            protects brokers and borrowers from wire fraud and closing-day risk.
+            Close Safely brings clarity, transparency, and collaboration into one intelligent workspace for buyers, brokers, realtors, and legal professionals.
           </p>
           <Link
             href="https://app.closesafely.ai/register/"
             className="inline-flex rounded-lg bg-green-700 px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-all hover:bg-green-800"
           >
-            Get Started
+            Get Early Access
           </Link>
         </div>
       </div>
+      <BackToTop />
     </main>
   );
 }

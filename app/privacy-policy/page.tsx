@@ -81,10 +81,10 @@ export default function PrivacyPolicyPage() {
             <p className="leading-8">
               For privacy questions, contact us at{" "}
               <a
-                href="mailto:support@themislending.atlassian.net"
+                href="mailto:support@closesafely.ai"
                 className="font-semibold text-green-700"
               >
-                support@themislending.atlassian.net
+                support@closesafely.ai
               </a>.
             </p>
           </section>

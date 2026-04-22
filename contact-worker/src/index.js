@@ -34,7 +34,7 @@ export default {
         },
         body: JSON.stringify({
           from: "Support <support@themislending.com>",
-          to: "support@themislending.atlassian.net",
+          to: "support@closesafely.ai",
           subject: `New Support Request from ${data.name}`,
           html: `
             <h2>New Support Request</h2>

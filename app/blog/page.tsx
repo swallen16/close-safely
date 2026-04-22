@@ -5,7 +5,7 @@ import BlogPostList from "./BlogPostList";
 export const metadata = {
   title: "Blog | Close Safely",
   description:
-    "Insights on real estate closing security, wire fraud prevention, and best practices for brokers and buyers.",
+    "Data-backed insights on mortgage inefficiencies, trends shaping lending across Canada, the U.S., and the U.K., and practical strategies to improve deal flow, retention, and client outcomes.",
 };
 
 export default function BlogPage() {
@@ -27,11 +27,10 @@ export default function BlogPage() {
             Close Safely Blog
           </p>
           <h1 className="text-4xl font-semibold tracking-tight text-gray-900">
-            Insights on closing security
+            Insights That Actually Matter
           </h1>
           <p className="mt-4 max-w-xl text-base leading-relaxed text-gray-500">
-            Wire fraud prevention, best practices for brokers, and what buyers
-            need to know before wiring funds.
+            We don&apos;t publish noise. We share data-backed insights on mortgage inefficiencies, trends shaping lending across Canada, the U.S., and the U.K., and practical strategies to improve deal flow, retention, and client outcomes.
           </p>
         </div>
 

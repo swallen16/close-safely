@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 
 import About from "./components/About";
 import CTA from "./components/CTA";
+import ComingSoon from "./components/ComingSoon";
 import CookieBanner from "./components/CookieBanner";
 import Contact from "./components/Contact";
 import Features from "./components/Features";
@@ -26,7 +27,8 @@ export default function Home() {
       <>
         <Hero setActive={setActive} />
         <Why />
-        <CTA />
+        <ComingSoon />
+        <CTA setActive={setActive} />
       </>
     ),
     About: <About />,
