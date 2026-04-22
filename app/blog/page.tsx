@@ -1,6 +1,9 @@
 import Link from "next/link";
-import { posts } from "./posts";
+import { getAllPosts } from "../lib/queries";
+import { posts as staticPosts } from "./posts";
 import BlogPostList from "./BlogPostList";
+
+export const revalidate = 60;
 
 export const metadata = {
   title: "Blog | Close Safely",
@@ -8,7 +11,24 @@ export const metadata = {
     "Data-backed insights on mortgage inefficiencies, trends shaping lending across Canada, the U.S., and the U.K., and practical strategies to improve deal flow, retention, and client outcomes.",
 };
 
-export default function BlogPage() {
+export default async function BlogPage() {
+  const sanityPosts = await getAllPosts();
+
+  // Fall back to static posts while Sanity content is being migrated
+  const posts =
+    sanityPosts.length > 0
+      ? sanityPosts
+      : staticPosts.map((p) => ({
+          slug: p.slug,
+          title: p.title,
+          date: p.date,
+          author: p.author,
+          category: p.category,
+          readTime: p.readTime,
+          excerpt: p.excerpt,
+          body: [],
+        }));
+
   return (
     <main className="min-h-screen bg-white px-6 py-16">
       <div className="mx-auto max-w-4xl">

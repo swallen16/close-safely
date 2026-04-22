@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import { pushEvent } from "../lib/gtm";
-import type { Post } from "./posts";
+import type { SanityPost } from "../lib/queries";
 
-export default function BlogPostList({ posts }: { posts: Post[] }) {
+export default function BlogPostList({ posts }: { posts: SanityPost[] }) {
   return (
     <div className="space-y-10">
       {posts.map((post, index) => (
