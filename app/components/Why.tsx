@@ -11,7 +11,7 @@ export default function Why() {
             The Problem We Solve
           </p>
           <h2 className="mb-5 text-4xl font-semibold leading-[1.15] tracking-tight text-gray-900">
-            Mortgage transactions are one of the largest financial decisions people make—yet the process is still{" "}
+            Mortgage transactions are one of the largest financial decisions people make, yet the process is still{" "}
             <span className="text-green-700">fragmented, opaque, and inefficient.</span>
           </h2>
         </div>
@@ -47,7 +47,7 @@ export default function Why() {
             </p>
             <h3 className="mb-4 text-lg font-semibold text-white">A Collaborative Deal Workspace</h3>
             <p className="mb-6 text-[15px] leading-relaxed text-green-100">
-              We unify every stakeholder—buyers, mortgage brokers, realtors, lawyers, and financial professionals—into a single, structured environment to:
+              We unify every stakeholder: buyers, mortgage brokers, realtors, lawyers, and financial professionals, into a single, structured environment to:
             </p>
             <ul className="space-y-4">
               {[

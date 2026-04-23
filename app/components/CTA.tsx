@@ -21,7 +21,7 @@ export default function CTA({ setActive }: CTAProps) {
           in <span className="text-green-700">mortgage transactions.</span>
         </h2>
         <p className="mx-auto mb-4 max-w-xl text-lg leading-relaxed text-gray-500">
-          We&apos;re building more than a tool — we&apos;re building the infrastructure layer for modern mortgage operations.
+          We&apos;re building more than a tool we&apos;re building the infrastructure layer for modern mortgage operations.
         </p>
         <p className="mx-auto mb-10 max-w-xl text-[15px] leading-relaxed text-gray-400">
           A system where data works for people, decisions are informed not reactive, and every participant operates with clarity.

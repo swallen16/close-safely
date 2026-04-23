@@ -14,12 +14,12 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Close Safely — Transactions Both Sides Can Trust",
+  title: "Close Safely Transactions Both Sides Can Trust",
   description:
     "Close Safely gives brokers and borrowers a shared, transparent space to move through transactions with clarity and finish with confidence. SOC 2 certified. No hidden fees.",
   metadataBase: new URL("https://closesafely.ai"),
   openGraph: {
-    title: "Close Safely — Transactions Both Sides Can Trust",
+    title: "Close Safely Transactions Both Sides Can Trust",
     description:
       "Close Safely gives brokers and borrowers a shared, transparent space to move through transactions with clarity and finish with confidence.",
     url: "https://closesafely.ai",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Close Safely — Transactions Both Sides Can Trust",
+    title: "Close Safely Transactions Both Sides Can Trust",
     description:
       "Close Safely gives brokers and borrowers a shared, transparent space to move through transactions with clarity and finish with confidence.",
     images: ["/og-image.png"],

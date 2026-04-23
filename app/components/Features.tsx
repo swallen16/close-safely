@@ -4,25 +4,25 @@ const differentiators = [
   {
     number: "01",
     title: "Workspace, Not Software",
-    body: "We bring all stakeholders into one environment — not another silo. Buyers, brokers, realtors, lawyers, and lenders operate from the same source of truth.",
+    body: "We bring all stakeholders into one environment not another silo. Buyers, brokers, realtors, lawyers, and lenders operate from the same source of truth.",
     items: ["Unified deal environment", "All parties connected", "No more fragmented tools"],
   },
   {
     number: "02",
     title: "Intelligence Built-In",
-    body: "From deal structuring to renewal insights, we surface what matters — when it matters. Our platform learns from every interaction to create smarter outcomes.",
+    body: "From deal structuring to renewal insights, we surface what matters when it matters. Our platform learns from every interaction to create smarter outcomes.",
     items: ["AI-driven renewal pipeline", "Proactive opportunity alerts", "Data-backed recommendations"],
   },
   {
     number: "03",
     title: "Designed for Real Workflows",
-    body: "Built with brokers, realtors, and lawyers — not in isolation. Every feature reflects how deals actually flow, not how we imagined they might.",
+    body: "Built with brokers, realtors, and lawyers not in isolation. Every feature reflects how deals actually flow, not how we imagined they might.",
     items: ["Practitioner-driven design", "Fast onboarding", "Intuitive from day one"],
   },
   {
     number: "04",
     title: "A Growing Data Advantage",
-    body: "Every interaction strengthens the system — creating smarter outcomes over time. The more teams use Close Safely, the more powerful it becomes for everyone.",
+    body: "Every interaction strengthens the system creating smarter outcomes over time. The more teams use Close Safely, the more powerful it becomes for everyone.",
     items: ["Continuous learning", "Portfolio intelligence", "Smarter decisions over time"],
   },
 ];
@@ -78,7 +78,7 @@ export default function Features() {
                 Mortgage Renewals: The lowest-hanging fruit in mortgage growth.
               </h3>
               <p className="text-[15px] leading-relaxed text-green-100">
-                Most brokers lose high-value clients not because of competition — but because of timing and visibility. Close Safely introduces a smarter way to identify renewal opportunities early, prioritize high-value clients, and nurture relationships proactively.
+                Most brokers lose high-value clients not because of competition but because of timing and visibility. Close Safely introduces a smarter way to identify renewal opportunities early, prioritize high-value clients, and nurture relationships proactively.
               </p>
             </div>
             <div className="flex flex-col justify-center space-y-4">

@@ -2,7 +2,7 @@ export default function About() {
   const values = [
     {
       title: "Transparency over opacity",
-      body: "We believe every borrower deserves to fully understand the process, their options, and their outcomes — not just the parts that are convenient to share.",
+      body: "We believe every borrower deserves to fully understand the process, their options, and their outcomes not just the parts that are convenient to share.",
     },
     {
       title: "Collaboration over fragmentation",
@@ -10,7 +10,7 @@ export default function About() {
     },
     {
       title: "Insight over guesswork",
-      body: "Better systems create better financial outcomes — and ultimately, better lives. We build with data and practitioner insight at the core.",
+      body: "Better systems create better financial outcomes and ultimately, better lives. We build with data and practitioner insight at the core.",
     },
   ];
 
@@ -32,10 +32,10 @@ export default function About() {
                 Close Safely was founded by a team with an average of 23+ years of experience across banking, lending, product, and financial services.
               </p>
               <p>
-                We&apos;ve seen the inefficiencies firsthand. And we&apos;ve experienced the consequences — missed opportunities, frustrated clients, and billions in wasted effort.
+                We&apos;ve seen the inefficiencies firsthand. And we&apos;ve experienced the consequences missed opportunities, frustrated clients, and billions in wasted effort.
               </p>
               <p>
-                We noticed a system where transparency to the end borrower has been lacking. The process should be simple for any borrower to get into their dream home with ease and understanding. We champion the ability to bring that transparency, act as an expert guide throughout the process, and drive innovation for the betterment of the life cycle of buying and selling a home — keeping families financially literate every step of the way.
+                We noticed a system where transparency to the end borrower has been lacking. The process should be simple for any borrower to get into their dream home with ease and understanding. We champion the ability to bring that transparency, act as an expert guide throughout the process, and drive innovation for the betterment of the life cycle of buying and selling a home keeping families financially literate every step of the way.
               </p>
             </div>
             <div className="mt-10 rounded-2xl border border-gray-100 bg-white p-5 shadow-sm">
@@ -78,10 +78,10 @@ export default function About() {
               Client First. Always.
             </p>
             <h3 className="mb-4 text-2xl font-semibold text-white">
-              Every feature is designed to empower — not replace — professionals.
+              Every feature is designed to empower not replace professionals.
             </h3>
             <p className="mb-8 text-[15px] leading-relaxed text-green-100">
-              Close Safely enables brokers, realtors, and legal professionals to understand their clients at a deeper level, deliver tailored high-confidence outcomes, and grow their portfolios with precision — not volume chaos.
+              Close Safely enables brokers, realtors, and legal professionals to understand their clients at a deeper level, deliver tailored high-confidence outcomes, and grow their portfolios with precision not volume chaos.
             </p>
             <div className="inline-flex items-center gap-2 rounded-xl border border-green-600 bg-green-600/40 px-5 py-3 text-sm font-medium text-green-100">
               Better decisions → Better client outcomes → Stronger long-term ROI

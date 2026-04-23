@@ -11,7 +11,7 @@ const innovations = [
   },
   {
     title: "New approaches to home equity access",
-    body: "Innovative ways for homeowners to unlock the value in their properties — with full transparency and professional guidance.",
+    body: "Innovative ways for homeowners to unlock the value in their properties with full transparency and professional guidance.",
   },
   {
     title: "Optimization tools for mortgage terms and financial planning",
@@ -35,7 +35,7 @@ export default function ComingSoon() {
             What We&apos;re Building Next
           </h2>
           <p className="text-lg leading-relaxed text-gray-500">
-            Close Safely is just the beginning. We&apos;re actively developing solutions to unlock new opportunities across the mortgage lifecycle. We don&apos;t just follow the market — we anticipate where it&apos;s going.
+            Close Safely is just the beginning. We&apos;re actively developing solutions to unlock new opportunities across the mortgage lifecycle. We don&apos;t just follow the market we anticipate where it&apos;s going.
           </p>
         </div>
 

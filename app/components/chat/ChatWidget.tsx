@@ -10,7 +10,7 @@ const INITIAL_MESSAGE: Message = {
   id: 'welcome',
   role: 'assistant',
   content:
-    "Hi! I'm the Close Safely assistant. I can help you learn how our platform helps brokers and borrowers close transactions with confidence — from security and transparency features to getting started. What would you like to know?",
+    "Hi! I'm the Close Safely assistant. I can help you learn how our platform helps brokers and borrowers close transactions with confidence from security and transparency features to getting started. What would you like to know?",
   timestamp: new Date(),
 };
 
@@ -84,7 +84,7 @@ export default function ChatWidget() {
       const assistantMessage: Message = {
         id: `assistant-${Date.now()}`,
         role: 'assistant',
-        content: data.reply ?? "Sorry — I couldn’t generate a reply.",
+        content: data.reply ?? "Sorry I couldn’t generate a reply.",
         timestamp: new Date(),
       };
 
