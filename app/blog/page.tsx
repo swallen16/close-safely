@@ -13,21 +13,22 @@ export const metadata = {
 
 export default async function BlogPage() {
   const sanityPosts = await getAllPosts();
+  const sanitySlugs = new Set(sanityPosts.map((p) => p.slug));
 
-  // Fall back to static posts while Sanity content is being migrated
-  const posts =
-    sanityPosts.length > 0
-      ? sanityPosts
-      : staticPosts.map((p) => ({
-          slug: p.slug,
-          title: p.title,
-          date: p.date,
-          author: p.author,
-          category: p.category,
-          readTime: p.readTime,
-          excerpt: p.excerpt,
-          body: [],
-        }));
+  const fallbackPosts = staticPosts
+    .filter((p) => !sanitySlugs.has(p.slug))
+    .map((p) => ({
+      slug: p.slug,
+      title: p.title,
+      date: p.date,
+      author: p.author,
+      category: p.category,
+      readTime: p.readTime,
+      excerpt: p.excerpt,
+      body: [],
+    }));
+
+  const posts = [...sanityPosts, ...fallbackPosts];
 
   return (
     <main className="min-h-screen bg-white px-6 py-16">
