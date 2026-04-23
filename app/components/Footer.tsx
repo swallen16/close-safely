@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { pushEvent } from "../lib/gtm";
 
 type FooterProps = {
   setActive?: (section: string) => void;
@@ -96,7 +99,7 @@ export default function Footer({ setActive }: FooterProps) {
           <div className="flex gap-5">
             {[
               { label: "Facebook", href: "https://www.themislending.com/" },
-              { label: "LinkedIn", href: "https://www.themislending.com/contact" },
+              { label: "LinkedIn", href: "https://www.linkedin.com/company/themis-lending/" },
             ].map((item) => (
               <a
                 key={item.label}
@@ -104,6 +107,14 @@ export default function Footer({ setActive }: FooterProps) {
                 target="_blank"
                 rel="noreferrer"
                 className="text-sm font-medium text-gray-400 transition-colors hover:text-gray-600"
+                onClick={() =>
+                  pushEvent({
+                    event: "social_click",
+                    platform: item.label,
+                    link_url: item.href,
+                    section_name: "Footer",
+                  })
+                }
               >
                 {item.label}
               </a>

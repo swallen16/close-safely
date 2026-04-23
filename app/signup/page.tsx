@@ -1,6 +1,19 @@
+"use client";
+
 import Link from "next/link";
+import { pushEvent } from "../lib/gtm";
 
 export default function SignupPage() {
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+    pushEvent({
+      event: "sign_up",
+      button_text: "Create Account",
+      section_name: "Signup Page",
+      page_location: window.location.href,
+    });
+  }
+
   return (
     <main className="min-h-screen bg-gradient-to-b from-green-50 via-white to-white px-6 py-16">
       <div className="mx-auto flex max-w-6xl flex-col gap-12 lg:flex-row lg:items-center">
@@ -27,7 +40,7 @@ export default function SignupPage() {
             <h2 className="text-2xl font-semibold text-gray-900">Create Account</h2>
             <p className="mt-2 text-sm text-gray-500">It only takes a minute to get started.</p>
           </div>
-          <form className="space-y-4">
+          <form className="space-y-4" onSubmit={handleSubmit}>
             <div>
               <label className="mb-1.5 block text-sm font-semibold text-gray-700">Full name</label>
               <input
